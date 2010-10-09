@@ -1,0 +1,17 @@
+#! /usr/bin/env ruby
+# -*- mode: ruby; coding: utf-8 -*-
+
+# A wrapper for crontab command.
+#
+# All options pass through to crontab command.
+# If '-e' option given, do `crontab -l > STORE_FILE`
+#
+# @since  2007-01-18
+
+unless ( ENV['PATH'].split( File::PATH_SEPARATOR ).include?( File.dirname( __FILE__ ) ) )
+  $LOAD_PATH << File.expand_path( "../lib", File.dirname( __FILE__ ) )
+end
+
+require 'crontabwrap'
+
+CrontabWrap.new.run
